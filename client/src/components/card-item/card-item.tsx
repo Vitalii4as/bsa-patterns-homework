@@ -17,33 +17,31 @@ type Props = {
   provided: DraggableProvided;
 };
 
-export const CardItem = React.memo<Props>(
-  ({ card, isDragging, provided }: Props) => {
-    return (
-      <Container
-        isDragging={isDragging}
-        ref={provided.innerRef}
-        {...provided.draggableProps}
-        {...provided.dragHandleProps}
-        data-is-dragging={isDragging}
-        data-testid={card.id}
-        aria-label={card.name}
-      >
-        <Content>
-          <Title
-            onChange={() => {}}
-            title={card.name}
-            fontSize="large"
-            bold={true}
-          />
-          <Text text={card.description} onChange={() => {}} />
-          <Footer>
-            <DeleteButton onClick={() => {}} />
-            <Splitter />
-            <CopyButton onClick={() => {}} />
-          </Footer>
-        </Content>
-      </Container>
-    );
-  },
-);
+export const CardItem = ({ card, isDragging, provided }: Props) => {
+  return (
+    <Container
+      isDragging={isDragging}
+      ref={provided.innerRef}
+      {...provided.draggableProps}
+      {...provided.dragHandleProps}
+      data-is-dragging={isDragging}
+      data-testid={card.id}
+      aria-label={card.name}
+    >
+      <Content>
+        <Title
+          onChange={() => {}}
+          title={card.name}
+          fontSize="large"
+          bold={true}
+        />
+        <Text text={card.description} onChange={() => {}} />
+        <Footer>
+          <DeleteButton onClick={() => {}} />
+          <Splitter />
+          <CopyButton onClick={() => {}} />
+        </Footer>
+      </Content>
+    </Container>
+  );
+};
